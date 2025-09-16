@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Night Ace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Quiz Night Ace</h1>
+            <p id="header-subtitle">Your personal trainer for Nairobi's ultimate trivia challenge.</p>
+        </header>
+
+        <main id="main-menu" class="view active">
+            <div id="notification-box" class="notification-box"></div>
+            <div class="menu-container">
+                <section class="menu-box">
+                    <h2>Start a Practice Quiz</h2>
+                    <p>Choose a category and difficulty for a quick 10-question quiz.</p>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category">
+                            <option value="mixed">Mixed Bag</option>
+                            <option value="A Fine Night for Science">A Fine Night for Science</option>
+                            <option value="Film & TV">Film & TV</option>
+                            <option value="General Knowledge">General Knowledge</option>
+                            <option value="Music">Music</option>
+                            <option value="Phenomenal Flags">Phenomenal Flags</option>
+                            <option value="Skylines & Scenery">Skylines & Scenery</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="mixed">Mixed</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <button onclick="startQuiz('practice')">Start Practice (10 Qs)</button>
+                </section>
+
+                <section class="menu-box">
+                    <h2>The Main Event</h2>
+                    <p>Simulate a full quiz night with 50 questions from all categories and difficulties.</p>
+                    <button class="special-button" onclick="startQuiz('full')">Start Full Night Version (50 Qs)</button>
+                </section>
+
+                <section class="menu-box">
+                    <h2>Revision Zone</h2>
+                    <p>Study questions and answers using flashcards without the pressure.</p>
+                    <button onclick="showView('flashcards')">Go to Flashcards</button>
+                </section>
+            </div>
+        </main>
+
+        <div id="quiz-view" class="view">
+            <div id="quiz-box">
+            </div>
+        </div>
+
+        <div id="flashcards" class="view">
+             <a href="#" onclick="showView('main-menu'); return false;" class="back-link">← Back to Main Menu</a>
+            <div id="flashcard-box">
+                <div id="flashcard-container">
+                </div>
+            </div>
+        </div>
+        
+        <noscript>
+            <div class="menu-box">
+                <h2>JavaScript Required</h2>
+                <p>This website is interactive and requires JavaScript to be enabled. Please enable it in your browser settings to continue.</p>
+            </div>
+        </noscript>
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
