@@ -1,0 +1,6 @@
+# Ignore dependencies and build artifacts for the React project
+react-vite-version/node_modules/
+react-vite-version/dist/
+
+# Optional: Ignore system files
+.DS_Store

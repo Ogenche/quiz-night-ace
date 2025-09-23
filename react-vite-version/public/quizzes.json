@@ -1,0 +1,12 @@
+[
+  {
+    "id": "science",
+    "name": "A Fine Night for Science",
+    "file": "science.json"
+  },
+  {
+    "id": "flags",
+    "name": "Phenomenal Flags",
+    "file": "flags.json"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "easy": [
+    { "question": "The flag of Canada features what type of leaf?", "answer": ["Maple", "Maple Leaf"] },
+    { "question": "What country has this flag? <br><br> <img src='https://flagcdn.com/w320/jp.png' alt='Japanese Flag'>", "answer": ["Japan"] }
+  ],
+  "medium": [
+    { "question": "Which country's flag is known as the 'Union Jack'?", "answer": ["United Kingdom", "UK"] },
+    { "question": "What is the only country to feature a building on its national flag?", "answer": ["Cambodia"] }
+  ],
+  "hard": [
+    { "question": "Which country's flag is the only one that is not a quadrilateral?", "answer": ["Nepal"] },
+    { "question": "What is the name for the study of flags?", "answer": ["Vexillology"] }
+  ]
+}

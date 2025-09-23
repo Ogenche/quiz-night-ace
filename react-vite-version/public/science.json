@@ -1,0 +1,14 @@
+{
+  "easy": [
+    { "question": "What is H2O more commonly known as?", "answer": ["Water"] },
+    { "question": "Which planet is known as the Red Planet?", "answer": ["Mars"] }
+  ],
+  "medium": [
+    { "question": "What is the hardest natural substance on Earth?", "answer": ["Diamond"] },
+    { "question": "What is the powerhouse of the cell?", "answer": ["Mitochondria", "Mitochondrion"] }
+  ],
+  "hard": [
+    { "question": "What does DNA stand for?", "answer": ["Deoxyribonucleic acid"] },
+    { "question": "What is the only planet in our solar system that spins clockwise?", "answer": ["Venus"] }
+  ]
+}
