@@ -20,6 +20,7 @@ Simply open the `index.html` file in your browser.
 ### 2. Modern React + Vite Version
 
 **Folder:** [`/react-vite-version`](./react-vite-version/)
+- **[View Live Demo](https://quiz-night-ace.vercel.app)**
 
 This is a complete rebuild of the original application using a modern tech stack to improve scalability, maintainability, and developer experience.
 
