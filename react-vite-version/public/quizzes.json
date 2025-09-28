@@ -5,8 +5,58 @@
     "file": "science.json"
   },
   {
+    "id": "scenery",
+    "name": "Skylines & Scenery",
+    "file": "scenery.json"
+  },
+  {
+    "id": "technology",
+    "name": "Technology & Innovation",
+    "file": "technology.json"
+  },
+  {
+    "id": "uk",
+    "name": "United Kingdom",
+    "file": "uk.json"
+  },
+  {
+    "id": "kenya",
+    "name": "Kenya",
+    "file": "kenya.json"
+  },
+  {
     "id": "flags",
     "name": "Phenomenal Flags",
     "file": "flags.json"
+  },
+  {
+    "id": "general",
+    "name": "General Knowledge",
+    "file": "general.json"
+  },
+  {
+    "id": "music",
+    "name": "Musical Mayhem",
+    "file": "music.json"
+  },
+  {
+    "id": "entertainment",
+    "name": "Movies & TV",
+    "file": "entertainment.json"
+  },
+  {
+    "id": "sports",
+    "name": "Sports Spectacular",
+    "file": "sports.json"
+  },
+  {
+    "id": "geography",
+    "name": "World Explorer",
+    "file": "geography.json"
+  },
+  {
+    "id": "food",
+    "name": "Food & Drink",
+    "file": "food.json"
   }
 ]

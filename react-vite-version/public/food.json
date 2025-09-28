@@ -1,0 +1,53 @@
+{
+  "easy": [
+    { "question": "What ingredient is guacamole primarily made from?", "answer": ["Avocado"] },
+    { "question": "Which grain is used to make sushi?", "answer": ["Rice"] },
+    { "question": "What is the main ingredient in chocolate?", "answer": ["Cocoa", "Cacao"] },
+    { "question": "Which fruit is known as the 'king of fruits'?", "answer": ["Durian"] },
+    { "question": "What is the main ingredient in hummus?", "answer": ["Chickpeas"] },
+    { "question": "Which country is famous for pizza?", "answer": ["Italy"] },
+    { "question": "What is sushi traditionally wrapped in?", "answer": ["Seaweed", "Nori"] },
+    { "question": "Which meat is used in a traditional hot dog?", "answer": ["Pork", "Beef"] },
+    { "question": "What type of food is Parmesan?", "answer": ["Cheese"] },
+    { "question": "Which fruit is wine traditionally made from?", "answer": ["Grapes"] },
+    { "question": "What is the main ingredient in bread?", "answer": ["Flour"] },
+    { "question": "Which nut is used to make marzipan?", "answer": ["Almonds", "Almond"] },
+    { "question": "What vegetable is traditionally carved for Halloween?", "answer": ["Pumpkin"] },
+    { "question": "What is the main ingredient in traditional Japanese miso soup?", "answer": ["Soybean", "Soybeans"] },
+    { "question": "Which spice is known as the world's most expensive?", "answer": ["Saffron"] }
+  ],
+  "medium": [
+    { "question": "What is the main ingredient in the Indian dish Dal?", "answer": ["Lentils"] },
+    { "question": "Which country invented ice cream?", "answer": ["China"] },
+    { "question": "What is the national dish of Spain?", "answer": ["Paella"] },
+    { "question": "Which cheese is traditionally used in a Greek salad?", "answer": ["Feta"] },
+    { "question": "What is the main ingredient in falafel?", "answer": ["Chickpeas"] },
+    { "question": "Which country is credited with inventing the sandwich?", "answer": ["England"] },
+    { "question": "What is the main flavoring in traditional pesto?", "answer": ["Basil"] },
+    { "question": "Which pasta's name means 'little worms' in Italian?", "answer": ["Vermicelli"] },
+    { "question": "What is the main ingredient in kimchi?", "answer": ["Cabbage"] },
+    { "question": "Which fruit is known as the 'forbidden fruit'?", "answer": ["Apple"] },
+    { "question": "What is the main ingredient in the Mexican sauce mole?", "answer": ["Chocolate"] },
+    { "question": "Which grain is used to make sake?", "answer": ["Rice"] },
+    { "question": "What is the main ingredient in tofu?", "answer": ["Soybeans", "Soy"] },
+    { "question": "Which fruit was previously known as a Chinese gooseberry?", "answer": ["Kiwi", "Kiwifruit"] },
+    { "question": "What is the main ingredient in traditional Japanese wasabi?", "answer": ["Horseradish", "Wasabi root"] }
+  ],
+  "hard": [
+    { "question": "What is the national dish of Japan?", "answer": ["Curry rice"] },
+    { "question": "Which spice comes from the crocus flower?", "answer": ["Saffron"] },
+    { "question": "What is the world's most expensive coffee?", "answer": ["Kopi Luwak"] },
+    { "question": "Which Italian cheese is made from buffalo milk?", "answer": ["Mozzarella"] },
+    { "question": "What is the main ingredient in the Middle Eastern dessert halva?", "answer": ["Tahini", "Sesame"] },
+    { "question": "Which wine region is Pomerol located in?", "answer": ["Bordeaux"] },
+    { "question": "What is the main ingredient in the Scottish dish haggis?", "answer": ["Sheep offal", "Offal"] },
+    { "question": "Which fruit is known as 'butter fruit' in parts of India?", "answer": ["Avocado"] },
+    { "question": "What is the primary ingredient in the Japanese condiment katsuobushi?", "answer": ["Dried bonito", "Tuna"] },
+    { "question": "Which nut is used to make amaretto?", "answer": ["Almonds", "Almond"] },
+    { "question": "What is the main ingredient in the Vietnamese sauce nuoc mam?", "answer": ["Fish", "Fermented fish"] },
+    { "question": "Which cheese has the nickname 'King of Cheeses'?", "answer": ["Parmigiano Reggiano", "Parmesan"] },
+    { "question": "What is the main flavoring in the Greek dessert ouzo?", "answer": ["Anise", "Star anise"] },
+    { "question": "Which Mexican dish's name means 'little donkey'?", "answer": ["Burrito"] },
+    { "question": "What is the main ingredient in the Korean dish gochujang?", "answer": ["Red chili", "Chili peppers"] }
+  ]
+}

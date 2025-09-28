@@ -40,3 +40,77 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Flashcard styles */
+.flashcard {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flashcard.transitioning {
+  pointer-events: none;
+}
+
+.flashcard.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+/* Style for images (flags) within flashcards */
+.card-face img {
+  max-width: 75%;  /* Reduce to 75% of the container width */
+  height: auto;    /* Maintain aspect ratio */
+  object-fit: contain;
+  margin: 10px 0;  /* Add some vertical spacing */
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: #f8f9fa;
+}
+
+.flashcard-nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.flashcard-nav button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.flashcard-nav button:hover {
+  background: #0056b3;
+}
+
+#flashcard-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}

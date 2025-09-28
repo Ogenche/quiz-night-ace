@@ -6,7 +6,7 @@ const normalizeString = (str) => {
   return str.toLowerCase().replace(/[^\w]/g, '');
 };
 
-function QuizView({ questions, onQuizEnd }) {
+function QuizView({ questions, onQuizEnd, onBackToMenu }) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -69,8 +69,20 @@ function QuizView({ questions, onQuizEnd }) {
     }
   };
 
+  // Handler to go back to main menu directly
+  const handleBackToMenu = () => {
+    if (window.confirm('Are you sure you want to go back to the main menu? Your progress will be lost.')) {
+      if (typeof onBackToMenu === 'function') {
+        onBackToMenu();
+      }
+    }
+  };
+
   return (
     <div id="quiz-box">
+      <a className="back-link" onClick={handleBackToMenu} style={{ marginBottom: '10px' }}>
+        ← Back to Main Menu
+      </a>
       <div className="quiz-header">
         <span>Question {questionIndex + 1} of {questions.length}</span>
         <span>Score: {score}</span>

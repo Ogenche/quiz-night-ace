@@ -1,0 +1,53 @@
+{
+  "easy": [
+    { "question": "In which sport would you perform a slam dunk?", "answer": ["Basketball"] },
+    { "question": "How many players are there in a standard soccer team on the field?", "answer": ["11", "Eleven"] },
+    { "question": "What sport is played at Wimbledon?", "answer": ["Tennis"] },
+    { "question": "In which sport might you get a strike or a spare?", "answer": ["Bowling"] },
+    { "question": "What color are the goalposts in rugby?", "answer": ["White"] },
+    { "question": "How many points is a touchdown worth in American Football?", "answer": ["6", "Six"] },
+    { "question": "What sport is played on the longest court?", "answer": ["Tennis"] },
+    { "question": "In which sport would you use a driver?", "answer": ["Golf"] },
+    { "question": "What is the name of Manchester United's home stadium?", "answer": ["Old Trafford"] },
+    { "question": "Which country won the first ever World Cup?", "answer": ["Uruguay"] },
+    { "question": "How many rings are on the Olympic flag?", "answer": ["5", "Five"] },
+    { "question": "What color is a standard tennis ball?", "answer": ["Yellow"] },
+    { "question": "In which sport might you get a bullseye?", "answer": ["Darts"] },
+    { "question": "Which sport uses the term 'love'?", "answer": ["Tennis"] },
+    { "question": "How many holes are played in a standard round of golf?", "answer": ["18", "Eighteen"] }
+  ],
+  "medium": [
+    { "question": "Who is often called 'The Greatest' in boxing?", "answer": ["Muhammad Ali"] },
+    { "question": "In which year did Roger Federer win his first Wimbledon title?", "answer": ["2003"] },
+    { "question": "Which NBA team has won the most championships?", "answer": ["Boston Celtics", "Celtics"] },
+    { "question": "What is the maximum number of clubs allowed in a golf bag during a round?", "answer": ["14", "Fourteen"] },
+    { "question": "Which country hosted the 2014 FIFA World Cup?", "answer": ["Brazil"] },
+    { "question": "What is the diameter of a basketball hoop in inches?", "answer": ["18", "Eighteen"] },
+    { "question": "Who won the first Super Bowl?", "answer": ["Green Bay Packers", "Packers"] },
+    { "question": "In which city is the famous Maracanã stadium?", "answer": ["Rio de Janeiro", "Rio"] },
+    { "question": "What is the name of the trophy awarded to the NHL champions?", "answer": ["Stanley Cup"] },
+    { "question": "How many Grand Slams has Rafael Nadal won?", "answer": ["22", "Twenty-two"] },
+    { "question": "Which country won the most medals in the 2020 Olympics?", "answer": ["United States", "USA"] },
+    { "question": "What is the standard length of an Olympic swimming pool in meters?", "answer": ["50", "Fifty"] },
+    { "question": "In which year did Tiger Woods win his first Masters?", "answer": ["1997"] },
+    { "question": "What is the nickname of Leicester City Football Club?", "answer": ["The Foxes"] },
+    { "question": "Which tennis player has won the most Grand Slam titles?", "answer": ["Novak Djokovic"] }
+  ],
+  "hard": [
+    { "question": "Who was the first gymnast to score a perfect 10 in the Olympics?", "answer": ["Nadia Comăneci", "Nadia Comaneci"] },
+    { "question": "Which footballer has scored the most goals in World Cup history?", "answer": ["Miroslav Klose"] },
+    { "question": "In what year was the first modern Olympics held?", "answer": ["1896"] },
+    { "question": "Who is the only athlete to win Olympic medals in both the Summer and Winter Games?", "answer": ["Eddie Eagan"] },
+    { "question": "What is the longest verified home run in MLB history?", "answer": ["575 feet"] },
+    { "question": "Which country won the first Cricket World Cup?", "answer": ["West Indies"] },
+    { "question": "Who was the youngest World Chess Champion?", "answer": ["Garry Kasparov"] },
+    { "question": "What was the original name of the New York Yankees?", "answer": ["New York Highlanders", "Highlanders"] },
+    { "question": "Which NFL team has never appeared in a Super Bowl?", "answer": ["Cleveland Browns", "Browns"] },
+    { "question": "Who holds the record for the most consecutive Formula 1 race wins?", "answer": ["Sebastian Vettel", "Max Verstappen"] },
+    { "question": "What is the oldest tennis tournament in the world?", "answer": ["Wimbledon"] },
+    { "question": "Which boxer had the longest undefeated streak?", "answer": ["Jimmy Wilde"] },
+    { "question": "What is the highest possible break in snooker?", "answer": ["147"] },
+    { "question": "Who was the first black player to compete at Wimbledon?", "answer": ["Althea Gibson"] },
+    { "question": "In which year was the first football World Cup held?", "answer": ["1930"] }
+  ]
+}

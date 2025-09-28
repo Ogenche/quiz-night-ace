@@ -58,18 +58,55 @@ function App() {
     }
   };
 
+  // New function to load all questions from all quiz files
+  const loadAllQuizQuestions = async (difficulty, count) => {
+    let allQuestions = [];
+    for (const quiz of quizzes) {
+      try {
+        const response = await fetch(`/${quiz.file}`);
+        const data = await response.json();
+        if (difficulty === 'mixed') {
+          allQuestions = allQuestions.concat(data.easy, data.medium, data.hard);
+        } else {
+          allQuestions = allQuestions.concat(data[difficulty] || []);
+        }
+      } catch (error) {
+        console.error(`Skipping file ${quiz.file} due to error:`, error);
+        continue;
+      }
+    }
+    const shuffled = allQuestions.sort(() => 0.5 - Math.random());
+    const questionsToLoad = shuffled.slice(0, count);
+    if (questionsToLoad.length === 0) {
+      alert("Sorry, no questions were found for the selected difficulty.");
+      return false;
+    }
+    setQuestions(questionsToLoad);
+    return true;
+  };
+
   const handleStartPractice = async () => {
     const success = await loadQuizQuestions(selectedQuiz, difficulty, 10);
     if (success) setGameState('quiz');
   };
 
   const handleStartFull = async () => {
-    const success = await loadQuizQuestions(selectedQuiz, 'mixed', 50);
+    console.log('Main Event button clicked');
+    if (!quizzes || quizzes.length === 0) {
+      alert("Quiz list is still loading. Please wait a moment and try again.");
+      return;
+    }
+    const success = await loadAllQuizQuestions('mixed', 50);
     if (success) setGameState('quiz');
   };
 
   const handleShowFlashcards = async () => {
-    const success = await loadQuizQuestions(selectedQuiz, 'mixed', 500); // Load all questions
+    console.log('Revision Zone (Flashcards) button clicked');
+    if (!quizzes || quizzes.length === 0) {
+      alert("Quiz list is still loading. Please wait a moment and try again.");
+      return;
+    }
+    const success = await loadAllQuizQuestions('mixed', 5000); // Load all questions
     if (success) setGameState('flashcards');
   };
 
@@ -86,7 +123,7 @@ function App() {
   const renderGameState = () => {
     switch (gameState) {
       case 'quiz':
-        return <QuizView questions={questions} onQuizEnd={handleQuizEnd} />;
+        return <QuizView questions={questions} onQuizEnd={handleQuizEnd} onBackToMenu={handlePlayAgain} />;
 
       // --- 2. ADD the case for flashcards ---
       case 'flashcards':
@@ -120,10 +157,15 @@ function App() {
     }
   };
 
+  // Handler to go back to main menu
+  const handleGoHome = () => setGameState('menu');
+
   return (
     <div className="container">
       <header>
-        <h1>Quiz Night Ace 🏆</h1>
+        <h1 style={{ cursor: 'pointer' }} onClick={handleGoHome} title="Go to Home Page">
+          Quiz Night Ace
+        </h1>
         <p id="header-subtitle">Your personal trainer for Nairobi's ultimate trivia challenge.</p>
       </header>
       {renderGameState()}
