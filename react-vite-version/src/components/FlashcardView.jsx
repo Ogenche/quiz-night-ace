@@ -1,10 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 function FlashcardView({ questions, onBack }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [displayedCard, setDisplayedCard] = useState(questions[0]);
   const [isChanging, setIsChanging] = useState(false);
+  
+  // Precompute next and previous indices
+  const nextIndex = (currentIndex + 1) % questions.length;
+  const prevIndex = (currentIndex - 1 + questions.length) % questions.length;
+
+  const handleNext = useCallback(() => {
+    setIsFlipped(false);
+    setIsChanging(true);
+    setCurrentIndex(nextIndex);
+  }, [nextIndex]);
+
+  const handlePrev = useCallback(() => {
+    setIsFlipped(false);
+    setIsChanging(true);
+    setCurrentIndex(prevIndex);
+  }, [prevIndex]);
+  
+  // Prefetch next card
+  useEffect(() => {
+    const img = new Image();
+    if (questions[nextIndex]?.question.includes('<img')) {
+      const match = questions[nextIndex].question.match(/src="([^"]+)"/);
+      if (match) {
+        img.src = match[1];
+      }
+    }
+  }, [currentIndex, questions, nextIndex]);
 
   useEffect(() => {
     if (isChanging) {
@@ -27,17 +54,7 @@ function FlashcardView({ questions, onBack }) {
     );
   }
 
-  const handleNext = () => {
-    setIsFlipped(false);
-    setIsChanging(true);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % questions.length);
-  };
 
-  const handlePrev = () => {
-    setIsFlipped(false);
-    setIsChanging(true);
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + questions.length) % questions.length);
-  };
 
   return (
     <div>

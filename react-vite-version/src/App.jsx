@@ -17,8 +17,17 @@ function App() {
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
-        const response = await fetch('/quizzes.json');
-        const data = await response.json();
+        // Add priority fetch hint
+        const quizzesPromise = fetch('/quizzes.json', {
+          priority: 'high'
+        }).then(r => r.json());
+
+        // Preload common quiz files
+        const preloadPromises = ['general.json', 'flags.json'].map(file => 
+          fetch(`/${file}`, { priority: 'low' }).then(r => r.json())
+        );
+
+        const [data] = await Promise.all([quizzesPromise, ...preloadPromises]);
         setQuizzes(data);
         if (data.length > 0) {
           setSelectedQuiz(data[0].file);
