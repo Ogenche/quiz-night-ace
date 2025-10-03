@@ -3,9 +3,10 @@ import QuizMenu from './components/QuizMenu';
 import QuizView from './components/QuizView';
 import FlashcardView from './components/FlashcardView'; // <-- 1. IMPORT the new component
 import TimerSelection from './components/TimerSelection';
+import CategorySelection from './components/CategorySelection';
 
 function App() {
-  const [gameState, setGameState] = useState('menu'); // 'menu', 'timer-select', 'quiz', 'flashcards', 'results'
+  const [gameState, setGameState] = useState('menu'); // 'menu', 'timer-select', 'category-select', 'quiz', 'flashcards', 'results'
   const [quizzes, setQuizzes] = useState([]);
   const [questions, setQuestions] = useState([]);
 
@@ -130,8 +131,13 @@ function App() {
       alert("Quiz list is still loading. Please wait a moment and try again.");
       return;
     }
-    const success = await loadAllQuizQuestions('mixed', 5000); // Load all questions
-    if (success) setGameState('flashcards');
+    // Go to category selection instead of directly loading all questions
+    setGameState('category-select');
+  };
+
+  const handleCategoriesSelect = (selectedQuestions) => {
+    setQuestions(selectedQuestions);
+    setGameState('flashcards');
   };
 
   const handleQuizEnd = (score, total) => {
@@ -155,6 +161,15 @@ function App() {
         return (
           <TimerSelection 
             onTimerSelect={handleTimerSelect} 
+            onBackToMenu={handlePlayAgain} 
+          />
+        );
+
+      case 'category-select':
+        return (
+          <CategorySelection 
+            quizzes={quizzes}
+            onCategoriesSelect={handleCategoriesSelect} 
             onBackToMenu={handlePlayAgain} 
           />
         );
