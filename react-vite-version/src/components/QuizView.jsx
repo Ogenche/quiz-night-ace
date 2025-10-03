@@ -6,7 +6,16 @@ const normalizeString = (str) => {
   return str.toLowerCase().replace(/[^\w]/g, '');
 };
 
-function QuizView({ questions, onQuizEnd, onBackToMenu }) {
+function QuizView({ 
+  questions, 
+  onQuizEnd, 
+  onBackToMenu,
+  selectedTimer,
+  remainingTime,
+  setRemainingTime,
+  isTimerActive,
+  setIsTimerActive
+}) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -14,6 +23,47 @@ function QuizView({ questions, onQuizEnd, onBackToMenu }) {
   const [isAnswered, setIsAnswered] = useState(false);
 
   const currentQuestion = questions[questionIndex];
+
+  // Timer effect - starts the timer when the first question loads
+  useEffect(() => {
+    if (selectedTimer !== null && !isTimerActive && questionIndex === 0) {
+      setIsTimerActive(true);
+    }
+  }, [selectedTimer, isTimerActive, questionIndex, setIsTimerActive]);
+
+  // Timer countdown effect
+  useEffect(() => {
+    let interval = null;
+    
+    if (isTimerActive && remainingTime > 0) {
+      interval = setInterval(() => {
+        setRemainingTime(time => {
+          if (time <= 1) {
+            setIsTimerActive(false);
+            // Call onQuizEnd with current score when timer expires
+            onQuizEnd(score, questions.length);
+            return 0;
+          }
+          return time - 1;
+        });
+      }, 1000);
+    } else if (remainingTime === 0) {
+      // Call onQuizEnd with current score when timer expires
+      onQuizEnd(score, questions.length);
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isTimerActive, remainingTime, setRemainingTime, setIsTimerActive, onQuizEnd, score, questions.length]);
+
+  // Format time for display (MM:SS)
+  const formatTime = (seconds) => {
+    if (seconds === null) return '';
+    const minutes = Math.floor(seconds / 60);
+    const remainingSecs = seconds % 60;
+    return `${minutes}:${remainingSecs.toString().padStart(2, '0')}`;
+  };
 
   // Focus the input when a new question is displayed
   useEffect(() => {
@@ -79,10 +129,18 @@ function QuizView({ questions, onQuizEnd, onBackToMenu }) {
   };
 
   return (
-    <div id="quiz-box">
+    <div id="quiz-box" style={{ position: 'relative' }}>
       <a className="back-link" onClick={handleBackToMenu} style={{ marginBottom: '10px' }}>
         ← Back to Main Menu
       </a>
+      
+      {/* Timer Display */}
+      {selectedTimer !== null && (
+        <div className={`quiz-timer ${remainingTime <= 30 ? 'warning' : ''}`}>
+          {remainingTime > 0 ? formatTime(remainingTime) : 'Time\'s Up!'}
+        </div>
+      )}
+      
       <div className="quiz-header">
         <span>Question {questionIndex + 1} of {questions.length}</span>
         <span>Score: {score}</span>

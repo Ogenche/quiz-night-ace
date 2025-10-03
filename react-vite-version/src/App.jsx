@@ -2,14 +2,20 @@ import React, { useState, useEffect } from 'react';
 import QuizMenu from './components/QuizMenu';
 import QuizView from './components/QuizView';
 import FlashcardView from './components/FlashcardView'; // <-- 1. IMPORT the new component
+import TimerSelection from './components/TimerSelection';
 
 function App() {
-  const [gameState, setGameState] = useState('menu'); // 'menu', 'quiz', 'flashcards', 'results'
+  const [gameState, setGameState] = useState('menu'); // 'menu', 'timer-select', 'quiz', 'flashcards', 'results'
   const [quizzes, setQuizzes] = useState([]);
   const [questions, setQuestions] = useState([]);
 
   const [selectedQuiz, setSelectedQuiz] = useState('');
   const [difficulty, setDifficulty] = useState('mixed');
+
+  // Timer-related state
+  const [selectedTimer, setSelectedTimer] = useState(null); // null for unlimited, number for seconds
+  const [remainingTime, setRemainingTime] = useState(null);
+  const [isTimerActive, setIsTimerActive] = useState(false);
 
   const [finalScore, setFinalScore] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
@@ -105,6 +111,15 @@ function App() {
       alert("Quiz list is still loading. Please wait a moment and try again.");
       return;
     }
+    // Instead of directly starting the quiz, go to timer selection
+    setGameState('timer-select');
+  };
+
+  const handleTimerSelect = async (timerValue) => {
+    setSelectedTimer(timerValue);
+    setRemainingTime(timerValue);
+    setIsTimerActive(false); // Timer will start when quiz begins
+    
     const success = await loadAllQuizQuestions('mixed', 50);
     if (success) setGameState('quiz');
   };
@@ -120,19 +135,43 @@ function App() {
   };
 
   const handleQuizEnd = (score, total) => {
+    setIsTimerActive(false); // Stop the timer
     setFinalScore(score);
     setTotalQuestions(total);
     setGameState('results');
   };
 
   const handlePlayAgain = () => {
+    // Reset all timer-related state
+    setSelectedTimer(null);
+    setRemainingTime(null);
+    setIsTimerActive(false);
     setGameState('menu');
   };
 
   const renderGameState = () => {
     switch (gameState) {
+      case 'timer-select':
+        return (
+          <TimerSelection 
+            onTimerSelect={handleTimerSelect} 
+            onBackToMenu={handlePlayAgain} 
+          />
+        );
+        
       case 'quiz':
-        return <QuizView questions={questions} onQuizEnd={handleQuizEnd} onBackToMenu={handlePlayAgain} />;
+        return (
+          <QuizView 
+            questions={questions} 
+            onQuizEnd={handleQuizEnd} 
+            onBackToMenu={handlePlayAgain}
+            selectedTimer={selectedTimer}
+            remainingTime={remainingTime}
+            setRemainingTime={setRemainingTime}
+            isTimerActive={isTimerActive}
+            setIsTimerActive={setIsTimerActive}
+          />
+        );
 
       // --- 2. ADD the case for flashcards ---
       case 'flashcards':
