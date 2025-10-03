@@ -21,8 +21,17 @@ A modern, interactive quiz application built with React and Vite. Challenge your
 
 - **Two Study Modes:**
 
-  - Quiz Mode: Test your knowledge with scored questions
-  - Flashcard Mode: Review questions with smooth card transitions
+  - **Quiz Mode:** Test your knowledge with scored questions
+  - **Flashcard Mode:** Review questions with smooth card transitions
+
+- **Timer Challenges (Full Night Version):**
+
+  - **3 Minutes:** Quick challenge for rapid-fire questions
+  - **5 Minutes:** Standard balanced experience
+  - **10 Minutes:** Extended time to think through answers
+  - **Unlimited Time:** No pressure, take as long as needed
+  - Real-time countdown with visual warnings
+  - Automatic quiz end when time expires
 
 - **Dynamic Difficulty Levels:**
 
@@ -43,6 +52,8 @@ A modern, interactive quiz application built with React and Vite. Challenge your
 - Component-based architecture for maintainability
 - External JSON data storage for easy content updates
 - CSS animations for smooth transitions
+- **Timer functionality with real-time countdown**
+- **Visual timer warnings and automatic quiz termination**
 - Responsive design for all devices
 - Optimized Core Web Vitals metrics
 
@@ -78,11 +89,14 @@ react-vite-version/
 │   └── *.json       # Individual quiz category files
 ├── src/
 │   ├── components/  # React components
-│   │   ├── QuizView.jsx
-│   │   ├── FlashcardView.jsx
-│   │   ├── QuizMenu.jsx
-│   │   └── ResultsView.jsx
+│   │   ├── QuizView.jsx      # Main quiz interface with timer
+│   │   ├── FlashcardView.jsx # Study mode component
+│   │   ├── QuizMenu.jsx      # Main menu interface
+│   │   ├── TimerSelection.jsx # Timer selection for Full Night
+│   │   └── ResultsView.jsx   # Quiz results display
 │   ├── App.jsx     # Main application component
+│   ├── App.css     # Component styles
+│   ├── index.css   # Global styles with timer CSS
 │   └── main.jsx    # Application entry point
 └── index.html      # HTML entry point
 ```
@@ -93,9 +107,19 @@ react-vite-version/
 
 - Select from multiple categories
 - Choose difficulty level
+- **Full Night Version (50 questions) with timer options**
 - Track score as you progress
 - Review correct answers
 - Final score summary
+- **Real-time countdown display with visual warnings**
+
+### Timer Challenges
+
+- **Timer Selection Screen:** Choose your challenge level before starting
+- **Visual Countdown:** Live timer display in MM:SS format
+- **Warning System:** Timer turns red and pulses when under 30 seconds
+- **Auto-End:** Quiz automatically ends when time expires
+- **Score Preservation:** Final score properly tracked regardless of completion method
 
 ### Flashcard Mode
 
